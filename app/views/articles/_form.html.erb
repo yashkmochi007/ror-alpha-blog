@@ -18,6 +18,16 @@
         </div>
 
         <div class="form-group row justify-content-center">
+          <div class="row">
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+              <% cb.label(class: "checkbox-inline input_checkbox") {
+                cb.check_box(class: "checkbox") + cb.text
+              } %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
           <%= f.submit class: "btn btn-outline-light btn-lg" %>
         </div>
       <% end %>
